@@ -16,9 +16,11 @@ app.use(express.json());
  *         name: amount
  *         required: true
  *         description: O valor em BRL a ser convertido.
+ *         schema:
+ *            type: number
  *     responses:
  *       200:
- *         description: Documentação API
+ *         description: Retorna o valor informado convertido para USD, EUR e INR.
  */
 app.get("/converter/BRL/:amount", currencyConverterController.convert);
 

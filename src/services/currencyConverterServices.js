@@ -1,3 +1,4 @@
+const pino = require("pino")();
 const request = require("../models/request");
 const { DateTime } = require("luxon");
 
@@ -53,6 +54,7 @@ const convertCurrency = async (amount) => {
 		currencies.forEach((currency) => {
 			const rate = parseFloat(currencyData[currency].bid);
 			if (isNaN(rate)) {
+				pino.error("An error occurred!");
 				return { error: "Invalid currency data" };
 			}
 

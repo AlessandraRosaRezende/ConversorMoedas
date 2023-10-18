@@ -68,4 +68,4 @@ const convertCurrency = async (amount) => {
 	}
 };
 
-module.exports = { convertCurrency };
+module.exports = { convertCurrency, applyDiscount };

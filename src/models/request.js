@@ -21,7 +21,10 @@ const fetchCurrencyData = async () => {
 };
 
 const getCachedCurrencyData = async () => {
-	const cachedData = myCache.get("currencyData");
+	let cachedData = myCache.get("currencyData");
+	if (!cachedData) {
+		cachedData = await fetchCurrencyData();
+	}
 	return cachedData;
 };
 

@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.json());
 
-// request.fetchCurrencyData();
+request.fetchCurrencyData();
 
 /**
  * @swagger

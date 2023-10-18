@@ -1,10 +1,13 @@
 const express = require("express");
 
+const request = require("./models/request");
 const currencyConverterController = require("./controllers/currencyConverterController");
 
 const app = express();
 
 app.use(express.json());
+
+request.fetchCurrencyData();
 
 /**
  * @swagger

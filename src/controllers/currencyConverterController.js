@@ -1,3 +1,4 @@
+const pino = require("pino")();
 const currencyConverterService = require("../services/currencyConverterServices");
 
 const convert = async (req, res) => {
@@ -14,8 +15,9 @@ const convert = async (req, res) => {
 	);
 
 	if (!conversionResult || conversionResult.error) {
+		pino.error("An error occurred!");
 		return res.status(400).json({ error: "An error occurred!" });
-	} 
+	}
 
 	return res.status(200).json(conversionResult);
 };

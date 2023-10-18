@@ -3,9 +3,19 @@ const express = require("express");
 const request = require("./models/request");
 const currencyConverterController = require("./controllers/currencyConverterController");
 
+const pino = require("pino");
+const pinoPretty = require("pino-pretty");
+const expressPinoLogger = require("pino-http");
+
+pino.pretty = pinoPretty();
+
 const app = express();
 
+const logger = pino();
+
 app.use(express.json());
+
+app.use(expressPinoLogger({ logger }));
 
 request.fetchCurrencyData();
 

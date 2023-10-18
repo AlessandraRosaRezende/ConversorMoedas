@@ -27,6 +27,9 @@
     "luxon": "^3.4.3",
     "node-cache": "^5.1.2",
     "nodemon": "^3.0.1",
+    "pino": "^8.16.0",
+    "pino-http": "^8.5.0",
+    "pino-pretty": "^10.2.3",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0"
   },

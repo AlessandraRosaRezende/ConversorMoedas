@@ -44,7 +44,7 @@ const calFinal = (discountPercentage, amount) => {
 };
 
 const convertCurrency = async (amount) => {
-	const currencyData = await request.fetchCurrencyData();
+	const currencyData = await request.getCachedCurrencyData();
 	const conversionResults = {};
 
 	if (currencyData) {

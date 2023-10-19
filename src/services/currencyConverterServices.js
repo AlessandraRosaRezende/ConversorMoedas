@@ -47,11 +47,15 @@ const calFinal = (discountPercentage, amount) => {
 const convertCurrency = async (amount) => {
 	const currencyData = await request.getCachedCurrencyData();
 	const conversionResults = {};
-
+	
 	if (currencyData) {
-		const currencies = ["USDBRL", "EURBRL", "INRBRL"];
+		const currencyMap = {
+			USDBRL: "USD",
+			EURBRL: "EUR",
+			INRBRL: "INR"
+		};
 
-		currencies.forEach((currency) => {
+		for (const currency in currencyMap) {
 			const rate = parseFloat(currencyData[currency].bid);
 			if (isNaN(rate)) {
 				pino.error("An error occurred!");
@@ -59,15 +63,11 @@ const convertCurrency = async (amount) => {
 			}
 
 			const convertedAmount = (applyDiscount(amount) / rate).toFixed(2);
-			conversionResults[currency] = convertedAmount;
-		});
+			conversionResults[currencyMap[currency]] = convertedAmount;
+		}
 
-		return {
-			USD: conversionResults.USDBRL,
-			EUR: conversionResults.EURBRL,
-			INR: conversionResults.INRBRL,
-		};
-	}
+		return conversionResults;
+	};
 };
 
 module.exports = { convertCurrency, applyDiscount };

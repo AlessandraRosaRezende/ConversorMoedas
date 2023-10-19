@@ -16,6 +16,8 @@ Este projeto é uma aplicação Node.js que permite a conversão de moedas em te
 
 Para buscar os valores de conversão, foi utilizada a API externa Awesome API, [aqui](https://docs.awesomeapi.com.br/api-de-moedas#legendas).
 
+Caso seja necessário alterar as moedas a serem utilizadas para a conversão, é necessário alterar a rota presente no arquivo `request.js`, bem como o objeto `currencyMap` em `currencyConverterServices`.
+
 
 ## Banco de Dados em Cache
 
@@ -23,7 +25,7 @@ A fim de otimizar a latência de resposta da API, este projeto utiliza um banco 
 
 ### Atualização dos Dados
 
-O banco de dados em cache é atualizado a cada 30 minutos para garantir que as cotações estejam sempre atualizadas. Esse intervalo de atualização mantém as informações relevantes e precisas para as conversões de moedas em tempo real.
+O banco de dados em cache é atualizado a cada 30 minutos, mediante requisição, para garantir que as cotações estejam sempre atualizadas. Esse intervalo de atualização mantém as informações relevantes e precisas para as conversões de moedas em tempo real.
 
 ## Como Usar
 

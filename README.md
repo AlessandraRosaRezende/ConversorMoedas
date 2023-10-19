@@ -79,7 +79,9 @@ Para iniciar a aplicação, siga estas etapas:
 
 3. Rode o comando npm install
 
-4. Execute o seguinte comando para subir a aplicação:
+4. Renomeie o arquivo `env.example` para `.env`, e informe a porta em que a aplicação rodará (3001, por padrão).
+
+5. Execute o seguinte comando para subir a aplicação:
 
 ```bash
 npm run compose:up

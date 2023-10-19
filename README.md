@@ -31,28 +31,28 @@ O banco de dados em cache é atualizado a cada 30 minutos, mediante requisição
 
 ### Conversão de Moedas
 
-Para converter um valor em reais para outras moedas, acesse a seguinte URL:
+Para converter um valor em real para outras moedas, acesse a seguinte URL:
 
 ```bash
   http://localhost:3001/converter/BRL/:amount
 ```
 
-Substitua `:amount` pelo valor em reais que deseja converter, observando que as casas decimais são demarcadas através de ponto (`.` - exemplo `562.56`).
+Substitua `:amount` pelo valor em real que deseja converter, observando que as casas decimais devem ser demarcadas através de ponto (`.` - exemplo: `562.56`).
 
 ### Regras de Negócio
 
 O projeto respeita as seguintes regras de negócio:
 
-- **Sábados, das 22 horas até 05 horas de domingo:** Todos os preços têm 10% de desconto. Se o valor for maior que R$ 2000, o desconto é de 15%.
-- **Segunda a sexta, das 19 horas até meia-noite:** Os valores acima de R$ 3000 têm desconto de 5%.
+- **Sábados, das 22 horas até 05 horas de domingo:** Todos os preços têm 10% de desconto. Se o valor for maior que R$2000, o desconto é de 15%.
+- **Segunda a sexta, das 19 horas até meia-noite:** Os valores acima de R$3000 têm desconto de 5%.
 
 ### Documentação Swagger
 
-O projeto inclui documentação Swagger para facilitar o teste e o entendimento dos endpoints da API. Você pode acessar a documentação [aqui](http://localhost:3001/api-docs/).
+O projeto inclui documentação Swagger para facilitar o teste e o entendimento do endpoint da API. É possível acessar a documentação [aqui](http://localhost:3001/api-docs/).
 
 ### Monitoramento com Pino
 
-O Pino é uma ferramenta de monitoramento que registra métricas importantes da aplicação. As métricas podem ser visualizadas no console do Docker. Um exemplo de saída da mensagem de monitoramento, ao fazer a requisição pelo Thunder Client, é:
+O Pino é uma ferramenta de monitoramento que registra métricas importantes da aplicação. As métricas podem ser visualizadas no console do Docker. Um exemplo de saída da mensagem de monitoramento, ao fazer a requisição pelo ThunderClient, é:
 
 ```bash
 {"level":30,"time":1697586398298,"pid":4746,"hostname":"97a15553edca","req":{"id":2,"method":"GET","url":"/converter/BRL/100","query":{},"params":{},"headers":{"accept-encoding":"gzip, deflate, br","accept":"*/*","user-agent":"Thunder Client (https://www.thunderclient.com)","host":"localhost:3001","connection":"close"},"remoteAddress":"::ffff:172.21.0.1","remotePort":55458},"res":{"statusCode":200,"headers":{"x-powered-by":"Express","content-type":"application/json; charset=utf-8","content-length":"45","etag":"W/\"2d-AAEKpyHh563DX2vNDBsalAD6EOk\""}},"responseTime":1,"msg":"request completed"}
@@ -86,6 +86,7 @@ npm run compose:up
 ```
 
 A aplicação será iniciada assim que o Docker Compose concluir. Para ver os logs, execute o seguinte comando no terminal:
+
 ```bash
 docker logs --tail 1000 -f convertion_api
 ```
@@ -121,7 +122,7 @@ Jest-Date-Mock
 Supertest
 ```
 
-Para executar os testes, use na raiz do projeto e fora do container, o seguinte comando:
+Para executar os testes, execute na raiz do projeto e fora do container, o seguinte comando:
 
 ```bash
 npm test

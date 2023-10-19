@@ -84,6 +84,7 @@ Para iniciar a aplicação, siga estas etapas:
 ```bash
 npm run compose:up
 ```
+É necessário renomear o arquivo `env.example` para `.env`, e informar a porta a ser utilizada (3001, por padrão).
 
 A aplicação será iniciada assim que o Docker Compose concluir. Para ver os logs, execute o seguinte comando no terminal:
 

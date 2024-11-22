@@ -1,4 +1,4 @@
-# Conversor de Moedas - Desafio Técnico Grupo SBF
+# Conversor de Moedas
 
 ## Descrição
 
